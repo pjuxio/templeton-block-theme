@@ -37,6 +37,7 @@ input[type="submit"],
 textarea:focus,
 .wp-element-button {
 	transition: all 0.2s ease-in-out;
+	font-size: 18px !important;
 }
 
 a,
@@ -379,6 +380,13 @@ blockquote {
 	border-bottom-color: var(--wp--preset--color--light-blue);
 }
 
+@media (max-width: 600px) {
+	.three-pillars-section .wp-block-media-text__content {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
 /* Values grid - 4 columns */
 .values-grid {
 	display: grid;
@@ -447,6 +455,38 @@ blockquote {
 	padding-bottom: 8px;
 }
 
+/* Yellow accent underline */
+.accent-underline-yellow {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--accent);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-yellow {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--accent);
+	padding-bottom: 8px;
+}
+
+/* Teal accent underline */
+.accent-underline-teal {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--teal);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-teal {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--teal);
+	padding-bottom: 8px;
+}
+
 /* Numbered circles list styling */
 .numbered-circles .item-header {
 	font-weight: 700;
@@ -455,7 +495,7 @@ blockquote {
 }
 
 .numbered-circles .item-body {
-	margin-top: 4px;
+	margin-top: 2px;
 }
 
 /* What Makes Us Different section */
@@ -478,5 +518,18 @@ blockquote {
 }
 
 .has-contrast-background-color .numbered-circles li {
-	margin-bottom: 16px;
+	margin-bottom: 24px;
+}
+
+/* Who Thrives Here section */
+.has-teal-background-color .wp-block-image img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.has-teal-background-color .wp-block-list li {
+	font-size: 20px;
+	line-height: 1.6;
 }
