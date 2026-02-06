@@ -61,6 +61,8 @@ function templeton_block_theme_register_block_styles() {
 		),
 		'core/list' => array(
 			'no-disc' => __( 'No Disc', 'templeton-block-theme' ),
+			'checkmark-list' => __( 'Checkmark', 'templeton-block-theme' ),
+			'checkmark-list-purple' => __( 'Checkmark Purple', 'templeton-block-theme' ),
 		),
 		'core/quote' => array(
 			'shadow-light' => __( 'Shadow', 'templeton-block-theme' ),
