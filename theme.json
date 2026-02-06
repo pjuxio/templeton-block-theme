@@ -11,6 +11,13 @@
 			"title": "Blank"
 		},
 		{
+			"name": "page-design-guide",
+			"postTypes": [
+				"page"
+			],
+			"title": "Design Guide"
+		},
+		{
 			"name": "no-title",
 			"postTypes": [
 				"page",
@@ -141,6 +148,11 @@
 					"color": "#d1956b",
 					"name": "Tan",
 					"slug": "tan"
+				},
+				{
+					"color": "#f9f6f0",
+					"name": "Bone",
+					"slug": "bone"
 				}
 			]
 		},

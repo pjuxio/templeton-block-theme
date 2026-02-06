@@ -332,3 +332,151 @@ blockquote {
 	}
 
 }
+
+/* Intro Section - left aligned content within 1400px
+---------------------------------------- */
+
+.intro-section > * {
+	max-width: 1400px !important;
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+.intro-blurb {
+	margin-right: 30px !important;
+}
+
+/* Three Pillars Pattern
+---------------------------------------- */
+
+.three-pillars-section > .wp-block-heading {
+	margin-top: 20px !important;
+	margin-bottom: 60px !important;
+}
+
+.three-pillars-section .wp-block-media-text.is-vertically-aligned-top {
+	align-items: center !important;
+}
+
+.three-pillars-section .wp-block-media-text__media,
+.three-pillars-section .wp-block-media-text__content {
+	align-self: center !important;
+}
+
+.three-pillars-section .wp-block-media-text__media img {
+	border-bottom: 8px solid var(--wp--preset--color--primary);
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.three-pillars-section .wp-block-media-text:nth-of-type(2) .wp-block-media-text__media img {
+	border-bottom-color: var(--wp--preset--color--accent);
+}
+
+.three-pillars-section .wp-block-media-text:nth-of-type(3) .wp-block-media-text__media img {
+	border-bottom-color: var(--wp--preset--color--light-blue);
+}
+
+/* Values grid - 4 columns */
+.values-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 32px;
+	margin-top: 48px;
+	margin-bottom: 32px;
+	list-style: none;
+	padding-left: 0;
+}
+
+@media (max-width: 1024px) {
+	.values-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.values-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.values-grid li {
+	margin-bottom: 0;
+	padding: 24px;
+	background: #ffffff;
+	border-radius: 8px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.values-grid li:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Purple accent underline */
+.accent-underline-purple {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--primary);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-purple {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--primary);
+	padding-bottom: 8px;
+}
+
+/* Light blue accent underline */
+.accent-underline-light-blue {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--light-blue);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-light-blue {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--light-blue);
+	padding-bottom: 8px;
+}
+
+/* Numbered circles list styling */
+.numbered-circles .item-header {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--light-blue);
+}
+
+.numbered-circles .item-body {
+	margin-top: 4px;
+}
+
+/* What Makes Us Different section */
+.has-contrast-background-color .wp-block-image img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.has-contrast-background-color .wp-block-heading.has-light-blue-color {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--accent);
+	padding-bottom: 8px;
+}
+
+.has-contrast-background-color .numbered-circles {
+	list-style: none;
+	padding-left: 0;
+}
+
+.has-contrast-background-color .numbered-circles li {
+	margin-bottom: 16px;
+}
