@@ -649,6 +649,22 @@ blockquote {
 	padding-bottom: 8px;
 }
 
+/* Magenta accent underline */
+.accent-underline-magenta {
+	display: inline-block;
+	border-bottom: 4px solid #ff8ad2;
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-magenta {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid #ff8ad2;
+	padding-bottom: 8px;
+}
+
 /* Page Hero Cover Pattern
 ---------------------------------------- */
 .page-hero-cover {
