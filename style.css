@@ -38,6 +38,7 @@ textarea:focus,
 .wp-element-button {
 	transition: all 0.2s ease-in-out;
 	font-size: 18px !important;
+	font-weight: var(--wp--custom--font-weight--bold);
 }
 
 a,
@@ -50,7 +51,20 @@ a:not(.wp-element-button) {
 b,
 strong,
 th {
-	font-weight: var(--wp--custom--font-weight--medium);
+	font-weight: var(--wp--custom--font-weight--bold);
+}
+
+.intro-text {
+	padding-right: 80px;
+}
+
+@media (max-width: 782px) {
+	.intro-text {
+		padding-right: 0;
+	}
+	.who-thrives-section .wp-block-columns {
+		flex-direction: column !important;
+	}
 }
 
 mark {
@@ -107,6 +121,13 @@ textarea {
 /* Blocks
 ---------------------------------------- */
 
+/* -- Image -- */
+
+.wp-block-image {
+	margin-block-end: 0 !important;
+	margin-block-start: 0 !important;
+}
+
 /* -- Quote/Blockquote -- */
 
 .wp-block-quote {
@@ -154,7 +175,7 @@ blockquote {
 .hero-quote p {
 	margin-top: var(--wp--preset--spacing--small);
 	margin-bottom: var(--wp--preset--spacing--x-small);
-	color: #78e1e8;
+	color: #ffffff;
 }
 
 /* -- Who Thrives Section -- */
@@ -168,6 +189,7 @@ blockquote {
 	position: relative;
 	padding-left: 30px;
 	margin-bottom: 12px;
+	font-weight: var(--wp--custom--font-weight--bold);
 }
 
 .who-thrives-section .wp-block-list li::before {
@@ -181,7 +203,7 @@ blockquote {
 
 @media (max-width: 781px) {
 	.who-thrives-section .wp-block-columns {
-		flex-direction: column-reverse;
+		flex-direction: column !important;
 	}
 	
 	.who-thrives-section .wp-block-column {
@@ -189,7 +211,7 @@ blockquote {
 	}
 	
 	.who-thrives-section .wp-block-image {
-		margin-top: var(--wp--preset--spacing--medium);
+		margin-bottom: var(--wp--preset--spacing--medium);
 	}
 }
 
@@ -199,14 +221,15 @@ blockquote {
 	margin-bottom: 10px;
 }
 
-@media (max-width: 781px) {
+@media (max-width: 1100px) {
 	.recent-achievements-section .wp-block-columns {
 		flex-wrap: wrap;
+		display: flex !important;
 	}
 	
 	.recent-achievements-section .wp-block-columns > .wp-block-column {
-		flex-basis: calc(50% - 10px) !important;
-		margin-bottom: 20px;
+		flex-basis: calc(50% - 20px) !important;
+		margin-bottom: 30px;
 	}
 }
 
@@ -227,6 +250,7 @@ blockquote {
 	position: relative;
 	padding-left: 30px;
 	margin-bottom: 12px;
+	font-weight: var(--wp--custom--font-weight--bold);
 }
 
 .join-community-section .wp-block-list li::before {
@@ -341,6 +365,15 @@ blockquote {
 
 .has-hover-darken .wp-block-button__link:hover {
 	filter: brightness(0.85);
+}
+
+.has-hover-lightblue .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--light-blue) !important;
+}
+
+.has-hover-secondary .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--secondary) !important;
+	color: var(--wp--preset--color--base) !important;
 }
 
 /* Gravity Forms
@@ -571,6 +604,16 @@ blockquote {
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* About intro section */
+.about-intro-section {
+	background-color: var(--wp--preset--color--bone);
+}
+
+/* About video section */
+.about-video-section {
+	background-color: var(--wp--preset--color--secondary) !important;
+}
+
 /* Purple accent underline */
 .accent-underline-purple {
 	display: inline-block;
@@ -664,6 +707,54 @@ blockquote {
 	margin-left: auto;
 	margin-right: auto;
 	border-bottom: 4px solid #ff8ad2;
+	padding-bottom: 8px;
+}
+
+/* Lime accent underline */
+.accent-underline-lime {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--lime);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-lime {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--lime);
+	padding-bottom: 8px;
+}
+
+/* Coral accent underline */
+.accent-underline-coral {
+	display: inline-block;
+	border-bottom: 4px solid #f55657;
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-coral {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid #f55657;
+	padding-bottom: 8px;
+}
+
+/* Green accent underline */
+.accent-underline-green {
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--green-light);
+	padding-bottom: 4px;
+}
+
+.has-text-align-center.accent-underline-green {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 4px solid var(--wp--preset--color--green-light);
 	padding-bottom: 8px;
 }
 
