@@ -142,7 +142,7 @@ blockquote {
 /* -- Hero Quote -- */
 
 .hero-quote {
-  border: none !important;
+	border: none !important;
 	margin-bottom: 20px;
 }
 
@@ -154,7 +154,7 @@ blockquote {
 .hero-quote p {
 	margin-top: var(--wp--preset--spacing--small);
 	margin-bottom: var(--wp--preset--spacing--x-small);
-  color: #78e1e8;
+	color: #78e1e8;
 }
 
 /* -- Who Thrives Section -- */
@@ -722,35 +722,6 @@ blockquote {
 .has-teal-background-color .wp-block-list li {
 	font-size: 20px;
 	line-height: 1.6;
-}
-
-/* Checkmark List Styles
----------------------------------------- */
-ul.is-style-checkmark-list {
-	list-style-type: "\2713";
-	padding-left: 1rem;
-}
-
-ul.is-style-checkmark-list li {
-	padding-left: 16px;
-}
-
-ul.is-style-checkmark-list li::marker {
-	color: var(--wp--preset--color--primary) !important;
-}
-
-ul.is-style-checkmark-list-purple {
-	list-style-type: "\2713";
-	padding-left: 1rem;
-}
-
-ul.is-style-checkmark-list-purple li {
-	padding-left: 16px;
-	color: var(--wp--preset--color--primary);
-}
-
-ul.is-style-checkmark-list-purple li::marker {
-	color: var(--wp--preset--color--primary) !important;
 }
 
 /* Who Thrives Here section checkmarks */
