@@ -106,6 +106,13 @@ function templeton_block_theme_register_block_pattern_categories() {
 			'description' => __( 'Compare features for your digital products or service plans.', 'templeton-block-theme' ),
 		)
 	);
+	register_block_pattern_category(
+		'templeton-dc',
+		array(
+			'label'       => __( 'Templeton DC', 'templeton-block-theme' ),
+			'description' => __( 'Custom patterns for Templeton Academy DC.', 'templeton-block-theme' ),
+		)
+	);
 
 }
 

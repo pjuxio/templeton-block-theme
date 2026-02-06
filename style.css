@@ -487,6 +487,16 @@ blockquote {
 	padding-bottom: 8px;
 }
 
+/* Page Hero Cover Pattern
+---------------------------------------- */
+.page-hero-cover {
+	min-height: 432px !important;
+}
+
+.page-hero-cover img {
+	object-position: center center;
+}
+
 /* Numbered circles list styling */
 .numbered-circles .item-header {
 	font-weight: 700;
