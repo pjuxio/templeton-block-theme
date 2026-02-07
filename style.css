@@ -16,9 +16,6 @@ Tags: block-patterns, block-styles, custom-colors, custom-logo, custom-menu, edi
 /* Defaults
 ---------------------------------------- */
 
-/* Defaults
----------------------------------------- */
-
 *,
 *::before,
 *::after {
@@ -61,9 +58,6 @@ th {
 @media (max-width: 782px) {
 	.intro-text {
 		padding-right: 0;
-	}
-	.who-thrives-section .wp-block-columns {
-		flex-direction: column !important;
 	}
 }
 
@@ -178,7 +172,66 @@ blockquote {
 	color: #ffffff;
 }
 
+/* -- Main element -- */
+
+main.wp-block-group {
+	margin-top: 0;
+}
+
+/* -- Hero Quote Section -- */
+
+.hero-quote-section {
+	margin-top: 0;
+	padding: var(--wp--preset--spacing--large) 30px;
+}
+
+.hero-quote-section .wp-block-buttons {
+	margin-left: 20px;
+}
+
+.hero-quote-section .wp-block-image {
+	width: 100%;
+	height: 100%;
+}
+
+.hero-quote-section .wp-block-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Large screens - tighter layout */
+@media (min-width: 782px) {
+	.hero-quote-section {
+		padding-top: var(--wp--preset--spacing--medium) !important;
+		padding-bottom: var(--wp--preset--spacing--medium) !important;
+	}
+	
+	.hero-quote-section .wp-block-columns {
+		gap: var(--wp--preset--spacing--large) !important;
+		align-items: flex-start !important;
+	}
+	
+	.hero-quote-section .wp-block-column {
+		padding-top: 0;
+	}
+	
+	.hero-quote-section h2 {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 1100px) {
+	.hero-quote h2.has-max-36-font-size {
+		font-size: 28px !important;
+	}
+}
+
 /* -- Who Thrives Section -- */
+
+.who-thrives-section {
+	background-color: #f55657;
+}
 
 .who-thrives-section .wp-block-list {
 	list-style: none;
@@ -196,9 +249,36 @@ blockquote {
 	content: "\2713";
 	position: absolute;
 	left: 0;
-	color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--primary);
 	font-weight: bold;
 	font-size: 1.1em;
+}
+
+.who-thrives-section .wp-block-image {
+	width: 100%;
+	height: 100%;
+}
+
+.who-thrives-section .wp-block-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Large screens - tighter layout */
+@media (min-width: 782px) {
+	.who-thrives-section {
+		padding-top: var(--wp--preset--spacing--medium) !important;
+		padding-bottom: var(--wp--preset--spacing--medium) !important;
+	}
+	
+	.who-thrives-section .wp-block-columns {
+		gap: var(--wp--preset--spacing--large) !important;
+	}
+	
+	.who-thrives-section h2 {
+		margin-top: 0;
+	}
 }
 
 @media (max-width: 781px) {
@@ -213,6 +293,11 @@ blockquote {
 	.who-thrives-section .wp-block-image {
 		margin-bottom: var(--wp--preset--spacing--medium);
 	}
+	
+	.who-thrives-section .wp-block-image img {
+		aspect-ratio: 3 / 2;
+		height: auto;
+	}
 }
 
 /* -- Recent Achievements Section -- */
@@ -223,19 +308,9 @@ blockquote {
 
 @media (max-width: 1100px) {
 	.recent-achievements-section .wp-block-columns {
-		flex-wrap: wrap;
-		display: flex !important;
-	}
-	
-	.recent-achievements-section .wp-block-columns > .wp-block-column {
-		flex-basis: calc(50% - 20px) !important;
-		margin-bottom: 30px;
-	}
-}
-
-@media (max-width: 480px) {
-	.recent-achievements-section .wp-block-columns > .wp-block-column {
-		flex-basis: 100% !important;
+		display: grid !important;
+		grid-template-columns: 1fr 1fr;
+		gap: 30px;
 	}
 }
 
@@ -267,6 +342,27 @@ blockquote {
 	object-fit: cover;
 }
 
+/* Large screens - tighter layout */
+@media (min-width: 782px) {
+	.join-community-section {
+		padding-top: var(--wp--preset--spacing--large) !important;
+		padding-bottom: var(--wp--preset--spacing--large) !important;
+	}
+	
+	.join-community-section .wp-block-columns {
+		gap: var(--wp--preset--spacing--large) !important;
+		align-items: flex-start !important;
+	}
+	
+	.join-community-section .wp-block-column {
+		padding-top: 0;
+	}
+	
+	.join-community-section h2 {
+		margin-top: 0;
+	}
+}
+
 @media (max-width: 781px) {
 	.join-community-section .wp-block-columns {
 		flex-direction: column-reverse;
@@ -279,6 +375,97 @@ blockquote {
 	.join-community-section .wp-block-image {
 		margin-bottom: var(--wp--preset--spacing--medium);
 	}
+}
+
+/* -- Join Section -- */
+
+.join-section {
+	background-color: var(--wp--preset--color--contrast);
+}
+
+.join-section h2 {
+	color: var(--wp--preset--color--base);
+}
+
+.join-section .wp-block-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.join-section .wp-block-list li {
+	position: relative;
+	padding-left: 30px;
+	margin-bottom: 12px;
+	font-weight: var(--wp--custom--font-weight--bold);
+	color: var(--wp--preset--color--base);
+}
+
+.join-section .wp-block-list li::before {
+	content: "\2713";
+	position: absolute;
+	left: 0;
+	color: var(--wp--preset--color--primary);
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.join-section .wp-block-image {
+	width: 100%;
+	height: 100%;
+}
+
+.join-section .wp-block-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Large screens - tighter layout */
+@media (min-width: 782px) {
+	.join-section {
+		padding-top: var(--wp--preset--spacing--medium) !important;
+		padding-bottom: var(--wp--preset--spacing--medium) !important;
+	}
+	
+	.join-section .wp-block-columns {
+		gap: var(--wp--preset--spacing--large) !important;
+		align-items: flex-start !important;
+	}
+	
+	.join-section .wp-block-column {
+		padding-top: 0;
+	}
+	
+	.join-section h2 {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 781px) {
+	.join-section .wp-block-columns {
+		flex-direction: column-reverse !important;
+	}
+	
+	.join-section .wp-block-column {
+		flex-basis: 100% !important;
+	}
+	
+	.join-section .wp-block-image {
+		margin-bottom: var(--wp--preset--spacing--medium);
+	}
+	
+	.join-section .wp-block-image img {
+		aspect-ratio: 3 / 2;
+		height: auto;
+	}
+}
+
+/* -- Emoji Icon -- */
+
+.emoji-icon {
+	font-size: 48px;
+	line-height: 1;
+	margin-bottom: 0;
 }
 
 /* -- Code -- */
@@ -471,6 +658,10 @@ blockquote {
 	align-items: stretch;
 }
 
+.video-lead-columns .wp-block-column.is-vertically-aligned-center {
+	padding: var(--wp--preset--spacing--medium) var(--wp--preset--spacing--large);
+}
+
 .templeton-hero-video {
 	height: 100%;
 	margin: 0;
@@ -492,11 +683,14 @@ blockquote {
 	}
 	
 	.video-lead-columns .wp-block-column.is-vertically-aligned-center {
-		padding: var(--wp--preset--spacing--small) 30px !important;
+		padding: var(--wp--preset--spacing--medium) var(--wp--preset--spacing--medium) !important;
 	}
 }
 
 @media only screen and (max-width: 782px) {
+	.video-lead-columns .wp-block-column.is-vertically-aligned-center {
+		padding: var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) !important;
+	}
 
 	/* -- Columns -- */
 
@@ -813,20 +1007,4 @@ blockquote {
 .has-teal-background-color .wp-block-list li {
 	font-size: 20px;
 	line-height: 1.6;
-}
-
-/* Who Thrives Here section checkmarks */
-.who-thrives-section .wp-block-list li {
-	position: relative;
-	padding-left: 1.5em;
-	list-style: none;
-}
-
-.who-thrives-section .wp-block-list li::before {
-	content: "\2713";
-	position: absolute;
-	left: 0;
-	color: var(--wp--preset--color--primary);
-	font-weight: bold;
-	font-size: 1.1em;
 }

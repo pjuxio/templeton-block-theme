@@ -101,6 +101,52 @@ For a complete header/footer dark theme with accent colors:
 
 ---
 
+## CSS-First Development Approach
+
+When styling sections and components, follow this methodology:
+
+### Principles
+1. **Move inline styles to CSS** - Use section/component classes instead of inline `style=""` attributes
+2. **Use spacing presets** - Replace hardcoded px values with `var(--wp--preset--spacing--*)` (x-small, small, medium, large, x-large)
+3. **Add responsive breakpoints** - Scale down spacing at key breakpoints using progressively smaller presets
+
+### Standard Breakpoints
+- `1279px` - Large tablet/small desktop
+- `1100px` - Desktop content adjustments
+- `782px` - Tablet (WordPress "medium" breakpoint)
+- `600px` - Mobile
+- `480px` - Small mobile
+
+### Example Pattern
+```css
+/* Base styles */
+.section-name {
+    padding: var(--wp--preset--spacing--medium) var(--wp--preset--spacing--large);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1279px) {
+    .section-name {
+        padding: var(--wp--preset--spacing--small) var(--wp--preset--spacing--medium);
+    }
+}
+
+@media (max-width: 782px) {
+    .section-name {
+        padding: var(--wp--preset--spacing--small);
+    }
+}
+```
+
+### Benefits
+- Cleaner HTML templates
+- Centralized style management
+- Consistent responsive behavior
+- Easier maintenance and updates
+- Better leverages WordPress design system
+
+---
+
 ## Files Modified in This Customization
 
 1. **theme.json** - Color palette, button styles

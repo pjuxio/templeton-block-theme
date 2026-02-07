@@ -3,9 +3,9 @@
  * This file adds functions to the Templeton Block Theme WordPress theme.
  *
  * @package Templeton Block Theme
- * @author  WP Engine
+ * @author  PJUX
  * @license GNU General Public License v3
- * @link    https://templeton-block-themewp.com/
+ * @link    https://pjux.com/
  */
 
 if ( ! function_exists( 'templeton_block_theme_setup' ) ) {
@@ -35,6 +35,39 @@ if ( ! function_exists( 'templeton_block_theme_setup' ) ) {
 	}
 }
 add_action( 'after_setup_theme', 'templeton_block_theme_setup' );
+
+/**
+ * Add Google Tag Manager script to head.
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_google_tag_manager() {
+	?>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PCK4T9W4');</script>
+	<!-- End Google Tag Manager -->
+	<?php
+}
+add_action( 'wp_head', 'templeton_block_theme_google_tag_manager', 1 );
+
+/**
+ * Add Google Tag Manager noscript fallback after body tag.
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_google_tag_manager_noscript() {
+	?>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCK4T9W4"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<?php
+}
+add_action( 'wp_body_open', 'templeton_block_theme_google_tag_manager_noscript' );
 
 // Enqueue stylesheet.
 add_action( 'wp_enqueue_scripts', 'templeton_block_theme_enqueue_stylesheet' );
@@ -126,14 +159,16 @@ add_action( 'init', 'templeton_block_theme_register_block_pattern_categories' );
  * @since 1.0.0
  */
 function templeton_block_theme_enqueue_scripts() {
-	wp_add_inline_script( 'templeton-block-theme', '
+	wp_register_script( 'templeton-block-theme-scripts', '', array(), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'templeton-block-theme-scripts' );
+	wp_add_inline_script( 'templeton-block-theme-scripts', '
 		document.addEventListener("DOMContentLoaded", function() {
 			const heroVideo = document.querySelector(".templeton-hero-video video");
 			if (heroVideo) {
 				heroVideo.autoplay = true;
 				heroVideo.playsInline = true;
 				heroVideo.setAttribute("aria-label", "Templeton Academy campus video");
-				heroVideo.poster = "/wp-content/uploads/2026/01/dc-home-video-poster.jpg";
+				heroVideo.poster = "/wp-content/uploads/2026/02/dc-home-video.webp";
 				heroVideo.play().catch(function() {
 					// Autoplay was prevented, show controls
 					heroVideo.controls = true;
