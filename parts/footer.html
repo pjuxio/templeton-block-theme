@@ -1,27 +1,41 @@
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|x-large","bottom":"var:preset|spacing|x-large","left":"30px","right":"30px"},"margin":{"top":"0"}},"background":{"backgroundImage":{"url":"/wp-content/uploads/2026/02/pattern_TRANSPARENT_forweb.webp","source":"file"},"backgroundSize":"350px","backgroundRepeat":"repeat"},"dimensions":{"minHeight":"350px"}},"backgroundColor":"light-blue","layout":{"type":"constrained","wideSize":"700px"}} -->
-<div class="wp-block-group has-light-blue-background-color has-background" style="margin-top:0;min-height:350px;padding-top:var(--wp--preset--spacing--x-large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--x-large);padding-left:30px"><!-- wp:group {"style":{"spacing":{"padding":{"top":"40px","bottom":"40px","left":"60px","right":"60px"}},"border":{"radius":"8px"},"color":{"background":"#fffffff2"},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}},"dimensions":{"minHeight":"0px"},"layout":{"selfStretch":"fixed","flexSize":"400px"}},"textColor":"contrast","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group has-contrast-color has-text-color has-background has-link-color" style="border-radius:8px;background-color:#fffffff2;min-height:0px;padding-top:40px;padding-right:60px;padding-bottom:40px;padding-left:60px;flex-basis:400px;box-sizing:border-box"><!-- wp:heading {"textAlign":"center","fontSize":"large"} -->
-<h2 class="wp-block-heading has-text-align-center has-large-font-size">Interested in applying?</h2>
-<!-- /wp:heading -->
+<!-- wp:group {"align":"full","className":"footer-links-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|small","left":"30px","right":"30px"},"margin":{"top":"0px"}}},"backgroundColor":"primary","fontSize":"small","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull footer-links-white has-primary-background-color has-background has-small-font-size" style="margin-top:0px;padding-top:var(--wp--preset--spacing--medium);padding-right:30px;padding-bottom:var(--wp--preset--spacing--small);padding-left:30px"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"20px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<div class="wp-block-group alignwide"><!-- wp:site-logo {"width":280,"align":"center"} /-->
 
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/schedule-a-tour/">Schedule a Tour</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:html -->
+<address class="footer-address" itemscope itemtype="https://schema.org/EducationalOrganization">
+<span itemprop="name" style="display:none;">Templeton Academy</span>
+<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+<span itemprop="streetAddress">406 7th St. NW | 2nd Floor</span><br>
+<span itemprop="addressLocality">Washington</span>, <span itemprop="addressRegion">DC</span> <span itemprop="postalCode">20004</span>
+</span>
+</address>
+<!-- /wp:html -->
 
-<!-- wp:group {"align":"full","className":"footer-links-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"30px","right":"30px"},"margin":{"top":"0px"}}},"backgroundColor":"contrast","fontSize":"small","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull footer-links-white has-contrast-background-color has-background has-small-font-size" style="margin-top:0px;padding-top:var(--wp--preset--spacing--small);padding-right:30px;padding-bottom:var(--wp--preset--spacing--small);padding-left:30px"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"20px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group alignwide"><!-- wp:site-logo {"width":180,"align":"center"} /-->
+<!-- wp:social-links {"iconColor":"base","iconColorValue":"#ffffff","iconBackgroundColor":"primary","iconBackgroundColorValue":"#1e3a5f","size":"huge","style":{"spacing":{"margin":{"top":"var:preset|spacing|small"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
+<ul class="wp-block-social-links has-icon-color has-icon-background-color has-huge-icon-size is-style-default" style="margin-top:var(--wp--preset--spacing--small)"><!-- wp:social-link {"url":"https://www.facebook.com/templetonacademydc","service":"facebook"} /-->
 
-<!-- wp:paragraph {"align":"center","textColor":"base"} -->
-<p class="has-text-align-center has-base-color has-text-color">© 2026 Templeton Academy · <a href="#">Contact Us</a></p>
+<!-- wp:social-link {"url":"https://www.instagram.com/templetonacademydc","service":"instagram"} /--></ul>
+<!-- /wp:social-links -->
+
+<!-- wp:paragraph {"align":"center","className":"footer-attribution","textColor":"base"} -->
+<p class="has-text-align-center footer-attribution has-base-color has-text-color">Website by <a href="https://pjux.io" target="_blank" rel="noopener">PJUX.io</a> · Photography by <a href="https://www.ma2la.com/" target="_blank" rel="noopener">MA2LA</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"align":"center","textColor":"base"} -->
-<p class="has-text-align-center has-base-color has-text-color"><a href="#">Facebook</a> · <a href="#">LinkedIn</a> · <a href="#">Instagram</a></p>
-<!-- /wp:paragraph --></div>
+<!-- wp:shortcode -->
+[copyright]
+<!-- /wp:shortcode -->
+
+<!-- wp:html -->
+<a href="#" class="back-to-top" aria-label="Back to top">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</a>
+<script>
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+<!-- /wp:html --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

@@ -178,3 +178,13 @@ function templeton_block_theme_enqueue_scripts() {
 	' );
 }
 add_action( 'wp_enqueue_scripts', 'templeton_block_theme_enqueue_scripts' );
+
+/**
+ * Shortcode for copyright with current year.
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_copyright() {
+	return '<p class="has-text-align-center footer-attribution has-base-color has-text-color">© ' . date( 'Y' ) . ' Templeton Academy</p>';
+}
+add_shortcode( 'copyright', 'templeton_block_theme_copyright' );
