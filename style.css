@@ -910,8 +910,17 @@ main.wp-block-group {
 	}
 }
 
-/* Values grid - header left, body right */
-.values-grid {
+/* Section lead text with padding on large screens */
+@media (min-width: 1100px) {
+	.section-lead {
+		padding-left: 80px;
+		padding-right: 80px;
+    padding-bottom: 40px;
+	}
+}
+
+/* Grid list - header left, body right */
+.grid-list {
 	display: flex;
 	flex-direction: column;
 	gap: 48px;
@@ -921,41 +930,92 @@ main.wp-block-group {
 	padding-left: 0;
 }
 
-.values-grid li {
+.grid-list li {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	gap: 40px;
 	margin-bottom: 0;
 	align-items: start;
+	border-left: 10px solid var(--wp--preset--color--primary);
+	padding-left: 20px;
 }
 
-.styled-item-list.values-grid .item-header {
+.styled-item-list.grid-list .item-header {
 	font-family: var(--wp--preset--font-family--heading);
-	font-size: 36px;
+	font-size: 42px;
 	font-weight: 900;
 	line-height: 1.2;
 	color: var(--wp--preset--color--contrast);
 }
 
-.styled-item-list.values-grid .item-body {
+/* Grid list border color cycling */
+.styled-item-list.grid-list li:nth-child(6n+1) {
+	border-color: var(--wp--preset--color--primary);
+}
+
+.styled-item-list.grid-list li:nth-child(6n+2) {
+	border-color: var(--wp--preset--color--secondary);
+}
+
+.styled-item-list.grid-list li:nth-child(6n+3) {
+	border-color: var(--wp--preset--color--light-blue);
+}
+
+.styled-item-list.grid-list li:nth-child(6n+4) {
+	border-color: var(--wp--preset--color--teal);
+}
+
+.styled-item-list.grid-list li:nth-child(6n+5) {
+	border-color: var(--wp--preset--color--pink);
+}
+
+.styled-item-list.grid-list li:nth-child(6n+6) {
+	border-color: var(--wp--preset--color--lime);
+}
+
+.styled-item-list.grid-list .item-body {
 	font-weight: 500;
 	line-height: 1.6;
 }
 
 @media (max-width: 782px) {
-	.values-grid li {
+	.grid-list li {
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
 	
-	.styled-item-list.values-grid .item-header {
+	.styled-item-list.grid-list .item-header {
 		font-size: 26px;
 	}
 }
 
-/* About intro section */
-.about-intro-section {
+/* Subpage intro section */
+.subpage-intro-section {
 	background-color: var(--wp--preset--color--bone);
+}
+
+/* Academics lead section */
+.academics-lead {
+	color: var(--wp--preset--color--contrast);
+}
+
+.academics-lead h1,
+.academics-lead h2,
+.academics-lead h3 {
+	color: var(--wp--preset--color--contrast);
+	display: inline-block;
+	border-bottom: 4px solid var(--wp--preset--color--primary);
+	padding-bottom: 4px;
+}
+
+.academics-lead h1.has-text-align-center,
+.academics-lead h2.has-text-align-center,
+.academics-lead h3.has-text-align-center {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 8px;
 }
 
 /* About video section */
@@ -1174,6 +1234,36 @@ main.wp-block-group {
 	object-fit: cover;
 	width: 100%;
 	height: auto;
+}
+
+/* We Believe section */
+@media (min-width: 782px) {
+	.we-believe .wp-block-columns {
+		align-items: center !important;
+	}
+}
+
+/* We Believe section */
+.has-contrast-background-color .wp-block-image img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.we-believe p {
+  font-family: var(--wp--preset--font-family--heading);
+  font-weight: 900;
+}
+
+@media (max-width: 1000px) {
+	.we-believe .wp-block-columns {
+		flex-direction: column !important;
+	}
+	
+	.we-believe .wp-block-column {
+		flex-basis: 100% !important;
+	}
 }
 
 .has-contrast-background-color .wp-block-heading.has-light-blue-color {
