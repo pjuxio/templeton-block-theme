@@ -181,6 +181,11 @@ function templeton_block_theme_enqueue_scripts() {
 				if (aboutLink) {
 					aboutLink.closest(".wp-block-navigation-item").classList.add("current-menu-ancestor");
 				}
+				// Also highlight Our Team link itself
+				const ourTeamLink = document.querySelector(".wp-block-navigation a[href*=\"/our-team\"]");
+				if (ourTeamLink) {
+					ourTeamLink.closest(".wp-block-navigation-item").classList.add("current-menu-item");
+				}
 			}
 		});
 	' );
@@ -225,9 +230,9 @@ function templeton_block_theme_staff_grid() {
 		$headshot_1     = get_post_meta( get_the_ID(), 'staff_headshot_1', true );
 		$headshot_2     = get_post_meta( get_the_ID(), 'staff_headshot_2', true );
 
-		// Get image URLs - prioritize custom headshots, fall back to featured image
-		$image_1_url = $headshot_1 ? wp_get_attachment_image_url( $headshot_1, 'medium_large' ) : get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-		$image_2_url = $headshot_2 ? wp_get_attachment_image_url( $headshot_2, 'medium_large' ) : '';
+		// Get image URLs - smiling (headshot_2) as default, serious (headshot_1) on hover
+		$image_1_url = $headshot_2 ? wp_get_attachment_image_url( $headshot_2, 'medium_large' ) : get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+		$image_2_url = $headshot_1 ? wp_get_attachment_image_url( $headshot_1, 'medium_large' ) : '';
 
 		// Fallback to placeholder if no image
 		if ( ! $image_1_url ) {
@@ -311,10 +316,10 @@ function templeton_block_theme_staff_detail() {
 		return '';
 	}
 
-	$headshot_1 = get_post_meta( get_the_ID(), 'staff_headshot_1', true );
+	$headshot_2 = get_post_meta( get_the_ID(), 'staff_headshot_2', true );
 
-	// Get image URL - prioritize custom headshot, fall back to featured image
-	$image_url = $headshot_1 ? wp_get_attachment_image_url( $headshot_1, 'large' ) : get_the_post_thumbnail_url( get_the_ID(), 'large' );
+	// Get image URL - use smiling headshot (headshot_2), fall back to featured image
+	$image_url = $headshot_2 ? wp_get_attachment_image_url( $headshot_2, 'large' ) : get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 	$output = '<div class="staff-detail">';
 
