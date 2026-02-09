@@ -1557,3 +1557,128 @@ main.wp-block-group {
 		padding-right: 30%;
 	}
 }
+
+/* Steps list with numbered circles */
+.steps-list {
+	list-style: none;
+	padding: 0;
+	margin: 40px 0 0 0;
+	counter-reset: step-counter;
+}
+
+.steps-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	margin-bottom: 40px;
+	color: var(--wp--preset--color--base);
+}
+
+.steps-list .step-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.steps-list li::before {
+	content: counter(step-counter);
+	counter-increment: step-counter;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 48px;
+	height: 48px;
+	background-color: var(--wp--preset--color--light-blue);
+	color: var(--wp--preset--color--contrast);
+	border-radius: 50%;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 24px;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+
+.steps-list .step-title {
+	display: block;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: 1.2;
+	margin-bottom: 4px;
+}
+
+.steps-list .step-desc {
+	display: block;
+	font-size: var(--wp--preset--font-size--small);
+	margin-top: 4px;
+	opacity: 0.9;
+}
+
+.steps-list a {
+	color: var(--wp--preset--color--base);
+	text-decoration: underline;
+}
+
+.steps-list a:hover {
+	color: var(--wp--preset--color--lime);
+}
+
+/* How to Apply section */
+.how-to-apply-section .wp-block-image img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 1001px) {
+	.how-to-apply-section .wp-block-image {
+		padding-top: 50px;
+	}
+}
+
+@media (max-width: 1000px) {
+	.how-to-apply-section .wp-block-columns {
+		flex-direction: column-reverse !important;
+	}
+	
+	.how-to-apply-section .wp-block-column {
+		flex-basis: 100% !important;
+	}
+}
+
+/* Deadlines list */
+.deadlines-list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px 40px;
+	align-items: stretch;
+}
+
+.deadlines-list li {
+	padding: 16px 20px;
+	background: #ffffff;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.deadlines-list .item-header {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 4px;
+	color: var(--wp--preset--color--primary);
+}
+
+.deadlines-list .item-body {
+	font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+	.deadlines-list {
+		grid-template-columns: 1fr;
+	}
+}
