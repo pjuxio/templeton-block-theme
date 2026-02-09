@@ -174,6 +174,14 @@ function templeton_block_theme_enqueue_scripts() {
 					heroVideo.controls = true;
 				});
 			}
+
+			// Highlight About nav item when on staff pages
+			if (window.location.pathname.startsWith("/our-team")) {
+				const aboutLink = document.querySelector(".wp-block-navigation a[href*=\"/about\"]");
+				if (aboutLink) {
+					aboutLink.closest(".wp-block-navigation-item").classList.add("current-menu-ancestor");
+				}
+			}
 		});
 	' );
 }
@@ -188,3 +196,197 @@ function templeton_block_theme_copyright() {
 	return '<p class="has-text-align-center footer-attribution has-base-color has-text-color">© ' . date( 'Y' ) . ' Templeton Academy</p>';
 }
 add_shortcode( 'copyright', 'templeton_block_theme_copyright' );
+
+/**
+ * Shortcode to display staff grid with headshot hover effect.
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_staff_grid() {
+	$staff_query = new WP_Query( array(
+		'post_type'      => 'staff',
+		'posts_per_page' => -1,
+		'meta_key'       => 'staff_display_order',
+		'orderby'        => 'meta_value_num',
+		'order'          => 'ASC',
+	) );
+
+	if ( ! $staff_query->have_posts() ) {
+		return '<p class="has-text-align-center has-medium-font-size">No staff members found.</p>';
+	}
+
+	$output = '<div class="staff-grid">';
+
+	while ( $staff_query->have_posts() ) {
+		$staff_query->the_post();
+		
+		$staff_role     = get_post_meta( get_the_ID(), 'staff_role', true );
+		$staff_pronouns = get_post_meta( get_the_ID(), 'staff_pronouns', true );
+		$headshot_1     = get_post_meta( get_the_ID(), 'staff_headshot_1', true );
+		$headshot_2     = get_post_meta( get_the_ID(), 'staff_headshot_2', true );
+
+		// Get image URLs - prioritize custom headshots, fall back to featured image
+		$image_1_url = $headshot_1 ? wp_get_attachment_image_url( $headshot_1, 'medium_large' ) : get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+		$image_2_url = $headshot_2 ? wp_get_attachment_image_url( $headshot_2, 'medium_large' ) : '';
+
+		// Fallback to placeholder if no image
+		if ( ! $image_1_url ) {
+			$image_1_url = get_theme_file_uri() . '/assets/images/sample_800x800.jpg';
+		}
+
+		$has_hover_class = $image_2_url ? ' has-hover-image' : '';
+		$title_attr      = esc_attr( get_the_title() );
+		$permalink       = get_the_permalink();
+
+		$output .= '<div class="staff-card">';
+		$output .= '<a href="' . esc_url( $permalink ) . '" class="staff-card-link">';
+		$output .= '<div class="staff-card-image' . $has_hover_class . '">';
+		$output .= '<img src="' . esc_url( $image_1_url ) . '" alt="' . $title_attr . '" class="staff-headshot staff-headshot-primary" loading="lazy">';
+		
+		if ( $image_2_url ) {
+			$output .= '<img src="' . esc_url( $image_2_url ) . '" alt="' . $title_attr . '" class="staff-headshot staff-headshot-secondary" loading="lazy">';
+		}
+		
+		$output .= '</div>';
+		$output .= '<div class="staff-card-content">';
+		$output .= '<h3 class="staff-name">' . esc_html( get_the_title() ) . '</h3>';
+		
+		if ( $staff_role ) {
+			$output .= '<p class="staff-role">' . esc_html( $staff_role ) . '</p>';
+		}
+		
+		if ( $staff_pronouns ) {
+			$output .= '<span class="staff-pronouns">(' . esc_html( $staff_pronouns ) . ')</span>';
+		}
+		
+		$output .= '</div>';
+		$output .= '</a>';
+		$output .= '</div>';
+	}
+
+	$output .= '</div>';
+
+	wp_reset_postdata();
+
+	return $output;
+}
+add_shortcode( 'staff_grid', 'templeton_block_theme_staff_grid' );
+
+/**
+ * Shortcode to display staff member header (name and role).
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_staff_header() {
+	if ( ! is_singular( 'staff' ) ) {
+		return '';
+	}
+
+	$staff_role     = get_post_meta( get_the_ID(), 'staff_role', true );
+	$staff_pronouns = get_post_meta( get_the_ID(), 'staff_pronouns', true );
+
+	$output = '<h1 class="wp-block-heading has-text-align-center accent-underline-lime has-base-color has-text-color has-x-large-font-size">' . esc_html( get_the_title() );
+	
+	if ( $staff_pronouns ) {
+		$output .= ' <span class="staff-header-pronouns">(' . esc_html( $staff_pronouns ) . ')</span>';
+	}
+	
+	$output .= '</h1>';
+
+	if ( $staff_role ) {
+		$output .= '<p class="staff-header-role">' . esc_html( $staff_role ) . '</p>';
+	}
+
+	return $output;
+}
+add_shortcode( 'staff_header', 'templeton_block_theme_staff_header' );
+
+/**
+ * Shortcode to display staff member detail (headshot and bio).
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_staff_detail() {
+	if ( ! is_singular( 'staff' ) ) {
+		return '';
+	}
+
+	$headshot_1 = get_post_meta( get_the_ID(), 'staff_headshot_1', true );
+
+	// Get image URL - prioritize custom headshot, fall back to featured image
+	$image_url = $headshot_1 ? wp_get_attachment_image_url( $headshot_1, 'large' ) : get_the_post_thumbnail_url( get_the_ID(), 'large' );
+
+	$output = '<div class="staff-detail">';
+
+	if ( $image_url ) {
+		$output .= '<div class="staff-detail-image">';
+		$output .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( get_the_title() ) . '">';
+		$output .= '</div>';
+	}
+
+	$output .= '<div class="staff-detail-content">';
+	$output .= '<div class="staff-detail-bio">' . apply_filters( 'the_content', get_the_content() ) . '</div>';
+	
+	// Add previous/next navigation
+	$output .= templeton_block_theme_staff_navigation();
+	
+	$output .= '</div>';
+	$output .= '</div>';
+
+	return $output;
+}
+add_shortcode( 'staff_detail', 'templeton_block_theme_staff_detail' );
+
+/**
+ * Get previous/next staff navigation based on display order.
+ *
+ * @since 1.0.0
+ */
+function templeton_block_theme_staff_navigation() {
+	$current_order = get_post_meta( get_the_ID(), 'staff_display_order', true );
+	$current_order = $current_order ? intval( $current_order ) : 0;
+
+	// Get all staff ordered by display order
+	$all_staff = get_posts( array(
+		'post_type'      => 'staff',
+		'posts_per_page' => -1,
+		'meta_key'       => 'staff_display_order',
+		'orderby'        => 'meta_value_num',
+		'order'          => 'ASC',
+		'fields'         => 'ids',
+	) );
+
+	$current_index = array_search( get_the_ID(), $all_staff );
+	$prev_staff    = ( $current_index > 0 ) ? $all_staff[ $current_index - 1 ] : null;
+	$next_staff    = ( $current_index < count( $all_staff ) - 1 ) ? $all_staff[ $current_index + 1 ] : null;
+
+	$output = '<nav class="staff-navigation">';
+
+	if ( $prev_staff ) {
+		$prev_headshot = get_post_meta( $prev_staff, 'staff_headshot_1', true );
+		$prev_image    = $prev_headshot ? wp_get_attachment_image_url( $prev_headshot, 'thumbnail' ) : get_the_post_thumbnail_url( $prev_staff, 'thumbnail' );
+		
+		$output .= '<a href="' . get_permalink( $prev_staff ) . '" class="staff-nav-link staff-nav-prev">';
+		$output .= '<span class="staff-nav-direction">← Previous</span>';
+		$output .= '<span class="staff-nav-name">' . get_the_title( $prev_staff ) . '</span>';
+		$output .= '</a>';
+	} else {
+		$output .= '<span class="staff-nav-link staff-nav-placeholder"></span>';
+	}
+
+	if ( $next_staff ) {
+		$next_headshot = get_post_meta( $next_staff, 'staff_headshot_1', true );
+		$next_image    = $next_headshot ? wp_get_attachment_image_url( $next_headshot, 'thumbnail' ) : get_the_post_thumbnail_url( $next_staff, 'thumbnail' );
+		
+		$output .= '<a href="' . get_permalink( $next_staff ) . '" class="staff-nav-link staff-nav-next">';
+		$output .= '<span class="staff-nav-direction">Next →</span>';
+		$output .= '<span class="staff-nav-name">' . get_the_title( $next_staff ) . '</span>';
+		$output .= '</a>';
+	} else {
+		$output .= '<span class="staff-nav-link staff-nav-placeholder"></span>';
+	}
+
+	$output .= '</nav>';
+
+	return $output;
+}

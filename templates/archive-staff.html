@@ -1,0 +1,19 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium","left":"30px","right":"30px"},"margin":{"top":"0"}}},"backgroundColor":"secondary","layout":{"type":"constrained","contentSize":"1400px"}} -->
+<div class="wp-block-group alignfull has-secondary-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--medium);padding-right:30px;padding-bottom:var(--wp--preset--spacing--medium);padding-left:30px">
+	<!-- wp:heading {"textAlign":"center","level":1,"className":"accent-underline-lime","textColor":"base","fontSize":"x-large"} -->
+	<h1 class="wp-block-heading has-text-align-center accent-underline-lime has-base-color has-text-color has-x-large-font-size">Our Team</h1>
+	<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|large","bottom":"var:preset|spacing|large","left":"30px","right":"30px"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1400px"}} -->
+<main class="wp-block-group alignfull has-base-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--large);padding-left:30px">
+	<!-- wp:shortcode -->
+	[staff_grid]
+	<!-- /wp:shortcode -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
