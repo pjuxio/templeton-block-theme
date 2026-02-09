@@ -1550,3 +1550,10 @@ main.wp-block-group {
 		display: none;
 	}
 }
+
+/* Form with desktop padding */
+@media (min-width: 782px) {
+	.form-padded {
+		padding-right: 30%;
+	}
+}
