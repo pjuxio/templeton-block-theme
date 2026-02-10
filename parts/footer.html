@@ -1,32 +1,49 @@
 <!-- wp:group {"align":"full","className":"footer-links-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|small","left":"30px","right":"30px"},"margin":{"top":"0px"}}},"backgroundColor":"primary","fontSize":"small","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull footer-links-white has-primary-background-color has-background has-small-font-size" style="margin-top:0px;padding-top:var(--wp--preset--spacing--medium);padding-right:30px;padding-bottom:var(--wp--preset--spacing--small);padding-left:30px"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"20px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group alignwide"><!-- wp:html -->
-<a href="/" class="header-logo"><img src="/wp-content/uploads/2026/02/brand-white.png" alt="Site Logo" width="180" height="auto"></a>
+<div class="wp-block-group alignfull footer-links-white has-primary-background-color has-background has-small-font-size" style="margin-top:0px;padding-top:var(--wp--preset--spacing--medium);padding-right:30px;padding-bottom:var(--wp--preset--spacing--small);padding-left:30px"><!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|medium"}}}} -->
+<div class="wp-block-columns alignwide" style="margin-bottom:var(--wp--preset--spacing--medium)"><!-- wp:column {"verticalAlignment":"top"} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:html -->
+<a href="/" class="header-logo footer-logo"><img src="/wp-content/uploads/2026/02/brand-white.png" alt="Site Logo" width="180" height="auto"></a>
 <!-- /wp:html -->
 
 <!-- wp:html -->
-<address class="footer-address" itemscope itemtype="https://schema.org/EducationalOrganization">
+<address class="footer-address footer-address-left" itemscope itemtype="https://schema.org/EducationalOrganization">
 <span itemprop="name" style="display:none;">Templeton Academy</span>
-<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+<a href="https://share.google/3kGT105Cs0ZJr77oI" target="_blank" rel="noopener" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 <span itemprop="streetAddress">406 7th St. NW | 2nd Floor</span><br>
 <span itemprop="addressLocality">Washington</span>, <span itemprop="addressRegion">DC</span> <span itemprop="postalCode">20004</span>
-</span>
+</a>
 </address>
 <!-- /wp:html -->
 
-<!-- wp:social-links {"iconColor":"base","iconColorValue":"#ffffff","iconBackgroundColor":"primary","iconBackgroundColorValue":"#822f91","size":"has-large-icon-size","style":{"spacing":{"margin":{"top":"var:preset|spacing|small"}}},"className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
-<ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-default has-large-icon-size" style="margin-top:var(--wp--preset--spacing--small)"><!-- wp:social-link {"url":"https://www.facebook.com/templetonacademydc","service":"facebook"} /-->
+<!-- wp:social-links {"iconColor":"base","iconColorValue":"#ffffff","iconBackgroundColor":"primary","iconBackgroundColorValue":"#822f91","size":"has-small-icon-size","className":"is-style-default footer-social-left","layout":{"type":"flex","justifyContent":"left"}} -->
+<ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-default has-small-icon-size footer-social-left"><!-- wp:social-link {"url":"https://www.facebook.com/templetonacademydc","service":"facebook"} /-->
 
 <!-- wp:social-link {"url":"https://www.instagram.com/templetonacademydc","service":"instagram"} /--></ul>
-<!-- /wp:social-links -->
+<!-- /wp:social-links --></div>
+<!-- /wp:column -->
 
-<!-- wp:paragraph {"align":"center","className":"footer-attribution","textColor":"base"} -->
+<!-- wp:column {"verticalAlignment":"top"} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:paragraph {"align":"right","className":"footer-utility-links","textColor":"base","fontSize":"small"} -->
+<p class="has-text-align-right footer-utility-links has-base-color has-text-color has-small-font-size"><a href="/blog/">Blog</a> · <a href="/contact/">Contact</a> · <a href="/careers/">Careers</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|small"}}}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"light-blue","textColor":"contrast","className":"has-hover-secondary","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}}} -->
+<div class="wp-block-button has-hover-secondary"><a class="wp-block-button__link has-contrast-color has-light-blue-background-color has-text-color has-background has-link-color wp-element-button" href="/schedule-a-tour/">Schedule a Tour</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"5px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<div class="wp-block-group alignwide"><!-- wp:paragraph {"align":"center","className":"footer-attribution","textColor":"base"} -->
 <p class="has-text-align-center footer-attribution has-base-color has-text-color">Website by <a href="https://pjux.io" target="_blank" rel="noopener">PJUX.io</a> · Photography by <a href="https://www.ma2la.com/" target="_blank" rel="noopener">MA2LA</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:shortcode -->
 [copyright]
-<!-- /wp:shortcode -->
+<!-- /wp:shortcode --></div>
+<!-- /wp:group -->
 
 <!-- wp:html -->
 <a href="#" class="back-to-top" aria-label="Back to top">
@@ -39,5 +56,4 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
 });
 </script>
 <!-- /wp:html --></div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->

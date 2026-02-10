@@ -622,6 +622,11 @@ main.wp-block-group {
 	color: var(--wp--preset--color--base) !important;
 }
 
+.has-hover-lime .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--lime) !important;
+	color: var(--wp--preset--color--contrast) !important;
+}
+
 /* Gravity Forms
 ---------------------------------------- */
 
@@ -755,7 +760,7 @@ main.wp-block-group {
 }
 
 .footer-links-white a:hover {
-	color: var(--wp--preset--color--accent);
+	color: #ffffff;
 }
 
 .footer-links-white p.has-x-small-font-size a {
@@ -763,8 +768,8 @@ main.wp-block-group {
 }
 
 .footer-links-white .wp-block-social-links .wp-social-link svg {
-	height: 36px;
-	width: 36px;
+	height: 32px;
+	width: 32px;
 }
 
 .footer-attribution {
@@ -781,6 +786,48 @@ main.wp-block-group {
 	font-style: normal;
 	color: var(--wp--preset--color--base);
 	margin: var(--wp--preset--spacing--small) 0;
+	font-size: 14px;
+}
+
+.footer-address-left {
+	text-align: left;
+	margin: 10px 0 0 0;
+}
+
+.footer-logo {
+	display: inline-block;
+}
+
+.footer-social-left {
+	margin-top: 10px;
+}
+
+@media (max-width: 781px) {
+	.footer-links-white .wp-block-columns {
+		text-align: center;
+	}
+	
+	.footer-links-white .wp-block-column {
+		flex-basis: 100% !important;
+	}
+	
+	.footer-address-left {
+		text-align: center;
+		margin: 10px 0;
+	}
+	
+	.footer-social-left {
+		justify-content: center !important;
+	}
+	
+	.footer-utility-links {
+		text-align: center !important;
+	}
+	
+	.footer-links-white .wp-block-buttons {
+		justify-content: center !important;
+		margin-top: var(--wp--preset--spacing--small);
+	}
 }
 
 .back-to-top {
@@ -803,6 +850,7 @@ main.wp-block-group {
 
 .back-to-top:hover {
 	background-color: var(--wp--preset--color--secondary);
+	color: #ffffff;
 	transform: translateY(-3px);
 }
 
@@ -813,7 +861,15 @@ main.wp-block-group {
 
 @media (max-width: 782px) {
 	.back-to-top {
-		display: none;
+		width: 40px;
+		height: 40px;
+		bottom: 20px;
+		right: 20px;
+	}
+	
+	.back-to-top svg {
+		width: 18px;
+		height: 18px;
 	}
 }
 
@@ -901,6 +957,28 @@ main.wp-block-group {
 	object-fit: cover;
 	width: 100%;
 	height: auto;
+}
+
+@media (max-width: 1000px) {
+	.three-pillars-section .wp-block-media-text {
+		grid-template-columns: 100% !important;
+		grid-template-rows: auto auto;
+	}
+	
+	.three-pillars-section .wp-block-media-text__media {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	
+	.three-pillars-section .wp-block-media-text__content {
+		grid-column: 1;
+		grid-row: 2;
+		padding-left: 0 !important;
+	}
+	
+	.three-pillars-section .wp-block-media-text__media img {
+		aspect-ratio: 3 / 2;
+	}
 }
 
 @media (max-width: 600px) {
@@ -1191,6 +1269,12 @@ main.wp-block-group {
 	object-position: center center;
 }
 
+@media (min-width: 1200px) {
+	.page-hero-cover {
+		min-height: 600px !important;
+	}
+}
+
 @media (max-width: 782px) {
 	.page-hero-cover {
 		min-height: 250px !important;
@@ -1256,6 +1340,12 @@ main.wp-block-group {
   font-weight: 900;
 }
 
+@media (max-width: 1279px) {
+	.we-believe {
+		padding: var(--wp--preset--spacing--medium) 40px !important;
+	}
+}
+
 @media (max-width: 1000px) {
 	.we-believe .wp-block-columns {
 		flex-direction: column !important;
@@ -1263,6 +1353,68 @@ main.wp-block-group {
 	
 	.we-believe .wp-block-column {
 		flex-basis: 100% !important;
+		width: 100%;
+	}
+	
+	.we-believe .wp-block-image {
+		width: 100%;
+	}
+	
+	.we-believe .wp-block-image img {
+		aspect-ratio: 3 / 2;
+		object-fit: cover;
+		width: 100%;
+	}
+	
+	.we-believe p {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
+@media (max-width: 782px) {
+	.we-believe {
+		padding: var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) !important;
+	}
+}
+
+/* What Makes Us Different section */
+@media (min-width: 782px) {
+	.what-makes-us-different .wp-block-columns {
+		align-items: center !important;
+	}
+}
+
+@media (max-width: 1279px) {
+	.what-makes-us-different {
+		padding: var(--wp--preset--spacing--medium) 40px !important;
+	}
+}
+
+@media (max-width: 1000px) {
+	.what-makes-us-different .wp-block-columns {
+		flex-direction: column !important;
+	}
+	
+	.what-makes-us-different .wp-block-column {
+		flex-basis: 100% !important;
+		width: 100%;
+	}
+	
+	.what-makes-us-different .wp-block-image {
+		width: 100%;
+	}
+	
+	.what-makes-us-different .wp-block-image img {
+		aspect-ratio: 3 / 2;
+		object-fit: cover;
+		width: 100%;
+	}
+}
+
+@media (max-width: 782px) {
+	.what-makes-us-different {
+		padding: var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) !important;
 	}
 }
 
@@ -1681,4 +1833,180 @@ main.wp-block-group {
 	.deadlines-list {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* Video Modal
+---------------------------------------- */
+
+.video-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-overlay.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.video-modal-content {
+	position: relative;
+	width: 90%;
+	max-width: 1200px;
+	aspect-ratio: 16 / 9;
+}
+
+.video-modal-content iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.video-modal-close {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	background: transparent;
+	border: none;
+	color: #fff;
+	font-size: 40px;
+	cursor: pointer;
+	padding: 10px;
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+
+.video-modal-close:hover {
+	transform: scale(1.1);
+}
+
+.templeton-hero-video {
+	cursor: pointer;
+}
+
+/* Consultation Modal
+---------------------------------------- */
+.consultation-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.85);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.consultation-modal-overlay.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.consultation-modal-content {
+	background: var(--wp--preset--color--base);
+	border-radius: 12px;
+	padding: 40px;
+	max-width: 500px;
+	width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+}
+
+.consultation-modal-close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: none;
+	border: none;
+	font-size: 28px;
+	cursor: pointer;
+	color: var(--wp--preset--color--contrast);
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+
+.consultation-modal-close:hover {
+	transform: scale(1.1);
+}
+
+.consultation-modal-content h3 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: var(--wp--preset--font-size--large);
+	color: var(--wp--preset--color--primary);
+}
+
+.consultation-modal-content p {
+	margin-bottom: 20px;
+	color: var(--wp--preset--color--contrast);
+}
+
+.consultation-form .form-field {
+	margin-bottom: 15px;
+}
+
+.consultation-form label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 500;
+	color: var(--wp--preset--color--contrast);
+}
+
+.consultation-form input,
+.consultation-form textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 16px;
+	font-family: inherit;
+}
+
+.consultation-form textarea {
+	resize: vertical;
+	min-height: 100px;
+}
+
+.consultation-form button[type="submit"] {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+	border: none;
+	border-radius: 30px;
+	padding: 12px 30px;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--medium);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.consultation-form button[type="submit"]:hover {
+	background-color: var(--wp--preset--color--secondary);
+}
+
+.consultation-form .form-success {
+	text-align: center;
+	padding: 20px;
+}
+
+.consultation-form .form-success svg {
+	color: var(--wp--preset--color--primary);
+	margin-bottom: 15px;
 }

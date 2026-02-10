@@ -167,11 +167,20 @@ function templeton_block_theme_enqueue_scripts() {
 			if (heroVideo) {
 				heroVideo.autoplay = true;
 				heroVideo.playsInline = true;
-				heroVideo.setAttribute("aria-label", "Templeton Academy campus video");
+				heroVideo.setAttribute("aria-label", "Templeton Academy campus video - Click to watch full video");
 				heroVideo.poster = "/wp-content/uploads/2026/02/dc-home-video.webp";
 				heroVideo.play().catch(function() {
 					// Autoplay was prevented, show controls
 					heroVideo.controls = true;
+				});
+			}
+
+			// Video modal functionality
+			const heroVideoContainer = document.querySelector(".templeton-hero-video");
+			if (heroVideoContainer) {
+				heroVideoContainer.addEventListener("click", function(e) {
+					e.preventDefault();
+					openVideoModal("https://player.vimeo.com/video/1150163458?autoplay=1");
 				});
 			}
 
@@ -188,9 +197,123 @@ function templeton_block_theme_enqueue_scripts() {
 				}
 			}
 		});
+
+		function openVideoModal(videoUrl) {
+			// Create modal if it does not exist
+			let modal = document.querySelector(".video-modal-overlay");
+			if (!modal) {
+				modal = document.createElement("div");
+				modal.className = "video-modal-overlay";
+				modal.innerHTML = `
+					<div class="video-modal-content">
+						<button class="video-modal-close" aria-label="Close video">&times;</button>
+						<iframe src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				`;
+				document.body.appendChild(modal);
+
+				// Close on overlay click
+				modal.addEventListener("click", function(e) {
+					if (e.target === modal) {
+						closeVideoModal();
+					}
+				});
+
+				// Close button
+				modal.querySelector(".video-modal-close").addEventListener("click", closeVideoModal);
+
+				// Close on Escape key
+				document.addEventListener("keydown", function(e) {
+					if (e.key === "Escape") {
+						closeVideoModal();
+					}
+				});
+			}
+
+			const iframe = modal.querySelector("iframe");
+			iframe.src = videoUrl;
+			modal.classList.add("is-active");
+			document.body.style.overflow = "hidden";
+		}
+
+		function closeVideoModal() {
+			const modal = document.querySelector(".video-modal-overlay");
+			if (modal) {
+				modal.classList.remove("is-active");
+				const iframe = modal.querySelector("iframe");
+				iframe.src = "";
+				document.body.style.overflow = "";
+			}
+		}
+
+		// Consultation Modal functionality
+		const consultationTrigger = document.querySelector(".consultation-modal-trigger");
+		if (consultationTrigger) {
+			consultationTrigger.addEventListener("click", function(e) {
+				e.preventDefault();
+				openConsultationModal();
+			});
+		}
+
+		function openConsultationModal() {
+			let modal = document.querySelector(".consultation-modal-overlay");
+			if (!modal) {
+				modal = document.getElementById("consultation-modal");
+			}
+			if (modal) {
+				modal.classList.add("is-active");
+				document.body.style.overflow = "hidden";
+
+				// Close on overlay click
+				modal.addEventListener("click", function(e) {
+					if (e.target === modal) {
+						closeConsultationModal();
+					}
+				});
+
+				// Close button
+				modal.querySelector(".consultation-modal-close").addEventListener("click", closeConsultationModal);
+			}
+
+			modal.classList.add("is-active");
+			document.body.style.overflow = "hidden";
+		}
+
+		function closeConsultationModal() {
+			const modal = document.getElementById("consultation-modal");
+			if (modal) {
+				modal.classList.remove("is-active");
+				document.body.style.overflow = "";
+			}
+		}
+
+		// Close on Escape key
+		document.addEventListener("keydown", function(e) {
+			if (e.key === "Escape") {
+				closeConsultationModal();
+			}
+		});
 	' );
 }
 add_action( 'wp_enqueue_scripts', 'templeton_block_theme_enqueue_scripts' );
+
+/**
+ * Output consultation modal with Gravity Forms.
+ */
+function templeton_consultation_modal() {
+	if ( ! is_page( 'admissions' ) ) {
+		return;
+	}
+	?>
+	<div id="consultation-modal" class="consultation-modal-overlay">
+		<div class="consultation-modal-content">
+			<button class="consultation-modal-close" aria-label="Close">&times;</button>
+			<?php echo do_shortcode( '[gravityform id="2" title="true"]' ); ?>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'wp_footer', 'templeton_consultation_modal' );
 
 /**
  * Add favicon and app icons to the head.
