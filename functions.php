@@ -301,7 +301,7 @@ add_action( 'wp_enqueue_scripts', 'templeton_block_theme_enqueue_scripts' );
  * Output consultation modal with Gravity Forms.
  */
 function templeton_consultation_modal() {
-	if ( ! is_page( 'admissions' ) ) {
+	if ( ! is_page( array( 'admissions', 'faq', 'financial-aid' ) ) ) {
 		return;
 	}
 	?>

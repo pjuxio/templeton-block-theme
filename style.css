@@ -26,7 +26,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-a,
 button,
 input:focus,
 input[type="button"],
@@ -35,6 +34,11 @@ textarea:focus,
 .wp-element-button {
 	transition: all 0.2s ease-in-out;
 	font-size: 18px !important;
+	font-weight: var(--wp--custom--font-weight--bold);
+}
+
+a {
+	transition: all 0.2s ease-in-out;
 	font-weight: var(--wp--custom--font-weight--bold);
 }
 
@@ -53,6 +57,10 @@ th {
 
 .intro-text {
 	padding-right: 80px;
+}
+
+.intro-text.has-text-align-center {
+	padding-right: 0;
 }
 
 @media (max-width: 782px) {
@@ -804,11 +812,21 @@ main.wp-block-group {
 
 @media (max-width: 781px) {
 	.footer-links-white .wp-block-columns {
+		flex-direction: column;
 		text-align: center;
+		gap: var(--wp--preset--spacing--medium);
 	}
 	
 	.footer-links-white .wp-block-column {
 		flex-basis: 100% !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.footer-logo {
+		display: block;
+		text-align: center;
 	}
 	
 	.footer-address-left {

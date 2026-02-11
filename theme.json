@@ -576,18 +576,18 @@
 			},
 			"core/quote": {
 				"border": {
+					"bottom": {
+						"width": "0"
+					},
 					"left": {
 						"color": "var(--wp--preset--color--primary)",
 						"style": "solid",
 						"width": "4px"
 					},
-					"top": {
-						"width": "0"
-					},
 					"right": {
 						"width": "0"
 					},
-					"bottom": {
+					"top": {
 						"width": "0"
 					}
 				},
