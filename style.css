@@ -567,6 +567,19 @@ main.wp-block-group {
 	padding: 16px 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 	min-width: 200px;
+	left: 50% !important;
+	transform: translateX(-50%);
+	top: 100%;
+}
+
+/* Invisible bridge to keep hover active */
+.wp-block-navigation .has-child > .wp-block-navigation__submenu-container::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	right: 0;
+	height: 10px;
 }
 
 .wp-block-navigation .wp-block-navigation__submenu-container a,
@@ -660,6 +673,15 @@ main.wp-block-group {
 	font-weight: 400 !important;
 }
 
+/* Header Container
+---------------------------------------- */
+
+@media (max-width: 1100px) {
+	header .wp-block-navigation__responsive-container:not(.is-menu-open) {
+		display: none !important;
+	}
+}
+
 /* Header Logo
 ---------------------------------------- */
 
@@ -674,9 +696,15 @@ main.wp-block-group {
 	display: block;
 }
 
-@media (max-width: 782px) {
+@media (max-width: 1100px) {
 	.header-logo img {
-		width: 125px;
+		width: 175px;
+	}
+}
+
+@media (max-width: 600px) {
+	.header-logo img {
+		width: 135px;
 	}
 }
 
@@ -710,12 +738,53 @@ main.wp-block-group {
 	background-color: var(--wp--preset--color--contrast) !important;
 }
 
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-close {
 	padding: 30px;
+}
+
+/* Force left alignment in mobile menu */
+body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content,
+body .is-menu-open .wp-block-navigation__responsive-container-content {
+	--navigation-layout-justification-setting: flex-start !important;
+	padding-top: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	flex-direction: column !important;
+	align-items: flex-start !important;
+}
+
+body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content ul,
+body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+	--navigation-layout-justification-setting: flex-start !important;
+	gap: 8px;
+	align-items: flex-start !important;
+	width: 100% !important;
+}
+
+body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item,
+body .wp-block-navigation__responsive-container.is-menu-open li {
+	--navigation-layout-justification-setting: flex-start !important;
+	width: 100% !important;
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: flex-start !important;
+}
+
+body .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+	justify-content: flex-start !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open a {
+	text-align: left !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-icon {
+	margin-left: 8px;
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a {
 	color: var(--wp--preset--color--base) !important;
+	font-size: var(--wp--preset--font-size--medium);
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:hover {
@@ -724,40 +793,55 @@ main.wp-block-group {
 
 /* Mobile Overlay Submenu - Override desktop dropdown styles */
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
-	background-color: transparent;
-	box-shadow: none;
-	padding: 0;
-	border-radius: 0;
-	min-width: 0;
-	gap: 0;
+	background-color: transparent !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+	padding-left: 20px !important;
+	border-radius: 0 !important;
+	min-width: 0 !important;
+	gap: 8px !important;
 }
 
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container a,
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
-	background-color: transparent;
-	border-radius: 0;
-	padding: 4px 0 4px 20px;
-}
-
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item {
-	padding: 0;
-	margin: 0;
-}
-
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container a:hover,
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
-	background-color: transparent;
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container a {
+	font-size: var(--wp--preset--font-size--small) !important;
 }
 
 .wp-block-navigation__responsive-container-close {
 	color: var(--wp--preset--color--base);
 }
 
+/* Force mobile menu at 1100px */
+@media only screen and (max-width: 1100px) {
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__responsive-container-content {
+		display: none;
+	}
+	
+	.wp-block-navigation .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex !important;
+	}
+}
+
 /* Mobile: Hide Desktop CTA Button */
-@media only screen and (max-width: 781px) {
+@media only screen and (max-width: 1100px) {
 	.hide-on-mobile {
 		display: none !important;
 	}
+}
+
+/* Header Nav Group */
+.header-nav-group {
+	gap: 24px !important;
+}
+
+.header-cta-button .wp-block-button__link {
+	font-size: var(--wp--preset--font-size--small);
+	padding: 10px 18px;
+	transition: background-color 0.2s ease;
+}
+
+.header-cta-button .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--primary) !important;
+	color: var(--wp--preset--color--base) !important;
 }
 
 /* Footer Links
@@ -2027,4 +2111,12 @@ main.wp-block-group {
 .consultation-form .form-success svg {
 	color: var(--wp--preset--color--primary);
 	margin-bottom: 15px;
+}
+
+/* What Makes Us Different Section - Image Focal Point */
+@media (max-width: 1100px) {
+	.what-makes-us-different .wp-block-image img {
+		object-fit: cover;
+		object-position: center top;
+	}
 }
